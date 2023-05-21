@@ -1,9 +1,9 @@
 export class FormularioClientes{
-    IdCliente? : number;
-    TipoIdentificacion: string;
-    IdentificacionCliente: string;
-    NombreCliente: string;
-    Direccion: string;
-    Telefono: string;
-    Email: string;
+    idCliente: number =0;
+    tipoIdentificacion!: string;
+    identificacionCliente!: string;
+    nombreCliente!: string;
+    direccion!: string;
+    telefono!: string;
+    email!: string;
 }

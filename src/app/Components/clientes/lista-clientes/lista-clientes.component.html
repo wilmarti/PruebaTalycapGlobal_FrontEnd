@@ -1,1 +1,22 @@
-<p>lista-clientes works!</p>
+<table class="table .table-hover table-sm">
+    <tr>
+        <td class="font-weight-bold font-italic">IDENTIFICACION</td>
+        <td>NOMBRE</td>
+        <td>EMAIL</td>
+        <td>TELEFONO</td>
+
+    </tr>
+    <tr *ngFor="let clientelist of ClientesService.list; let i = index">
+        <!-- <td>{{ clientelist.idCliente}}</td> -->
+        <td>{{ clientelist.identificacionCliente}}</td>
+        <td>{{ clientelist.nombreCliente}}</td>
+        <td>{{ clientelist.email}}</td>
+        <td>{{ clientelist.telefono}}</td>
+        <td>
+            <i class="far fa-edit fa-lg text-info" (click)="editar(clientelist)"  style="cursor: pointer;"></i>          
+        </td>
+        <td>
+            <i class="far fa-trash-alt fa-lg text-danger" (click)="EliminarCliente(clientelist.idCliente)" style="cursor: pointer;"></i>          
+        </td>
+    </tr>
+</table>
