@@ -1,13 +1,13 @@
 export class FormularioDespachos{
-    idDespacho: number =0;
-    idCliente!: string;
-    idProducto!: string;
-    cantidad!: string;
+    idDespacho: number = 0;
+    idCliente!: number;
+    idProducto!: number;
+    cantidad!: number;
     fechaRegistro!: string;
     fechaEntrega!: string;
     precio!: string;
     numeroTransporte!: string;
     numeroGuia!: string;
-    idTipoEnvio!: string;
-    idLugarEntrega!: string;
+    idTipoEnvio!: number;
+    idLugarEntrega!: number;
 }

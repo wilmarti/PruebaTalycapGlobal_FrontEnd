@@ -16,31 +16,13 @@
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-white">
-                                <i class="fa-solid fa-user" [class.green-icon]="despachoForm.get('idCliente')?.valid"
+                                 <i class="fa-solid fa-user" [class.green-icon]="despachoForm.get('idCliente')?.valid"
                                 [class.red-icon]="this.despachoForm.get('idCliente')?.invalid && this.despachoForm.get('idCliente')?.touched"></i>
-                            </div>
+                             </div>
                         </div>
                         <input type="text" class="form-control" formControlName="idCliente" placeholder="id Cliente">
                     </div>
                 </div>
-            
-                <br>
-            
-<!--                 <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text bg-white">
-                                <i class="fa-regular fa-id-card" ></i>
-                            </div>
-                        </div>
-                        <select class="form-select" formControlName="tipoIdentificacion" aria-label="Default select example">
-                            <option selected>Tipo Identificacion</option>
-                            <option value="CC">Cedula de Ciudadania</option>
-                            <option value="CE">Cedula de Extranjeria</option>
-                            <option value="PA">Pasaporte</option>
-                          </select>
-                    </div>
-                </div> -->
             
                 <br>
             
@@ -50,50 +32,50 @@
                             <div class="input-group-text bg-white">
                                 <i class="fa-regular fa-id-card" [class.green-icon]="despachoForm.get('idProducto')?.valid"
                                 [class.red-icon]="this.despachoForm.get('idProducto')?.invalid && this.despachoForm.get('idProducto')?.touched"></i>
-                            </div>
+                             </div>
                         </div>
                         <input type="text" class="form-control" maxlength="10" formControlName="idProducto" placeholder="id Producto">
                     </div>
                 </div>
             
-                <br>
+                <br>      
             
-                <div class="form-group">
+               <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-white">
-                                <i class="fa-regular fa-phone" [class.green-icon]="despachoForm.get('cantidad')?.valid"
+                                 <i class="fa-regular fa-phone" [class.green-icon]="despachoForm.get('cantidad')?.valid"
                                 [class.red-icon]="this.despachoForm.get('cantidad')?.invalid && this.despachoForm.get('cantidad')?.touched"></i>
-                            </div>
+                             </div>
                         </div>
                         <input type="text" class="form-control" formControlName="cantidad" laceholder="cantidad" placeholder="cantidad">
                     </div>
                 </div>
             
                 <br>
-
-                
-            
+              
+              
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-white">
                                 <i class="fa-solid fa-calendar-days" [class.green-icon]="despachoForm.get('fechaRegistro')?.valid"
-                                [class.red-icon]="this.despachoForm.get('fechaRegistro')?.invalid && this.despachoForm.get('fechaRegistro')?.touched"></i>                    
+                                [class.red-icon]="this.despachoForm.get('fechaRegistro')?.invalid && this.despachoForm.get('fechaRegistro')?.touched"></i>                     
                             </div>
                         </div>
                         <input type="text" class="form-control" maxlength="10" formControlName="fechaRegistro" placeholder="fecha Registro">
                     </div>
                 </div>
             
-                <br>
-            
+                <br/>
+    
+    
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-white">
-                                <i class="fa-solid fa-calendar-days" [class.green-icon]="despachoForm.get('fechaEntrega')?.valid"
-                                [class.red-icon]="this.despachoForm.get('fechaEntrega')?.invalid && this.despachoForm.get('fechaEntrega')?.touched"></i>
+                               <i class="fa-solid fa-calendar-days" [class.green-icon]="despachoForm.get('fechaEntrega')?.valid"
+                                [class.red-icon]="this.despachoForm.get('fechaEntrega')?.invalid && this.despachoForm.get('fechaEntrega')?.touched"></i> 
                             </div>
                         </div>
                         <input type="text" class="form-control" formControlName="fechaEntrega" placeholder="fecha Entrega">
@@ -101,58 +83,68 @@
                 </div>
             
                 <br>
-
-                <div class="form-group">
+ 
+            <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-white">
-                                <i class="fa-solid fa-hand-holding-dollar" [class.green-icon]="despachoForm.get('precio')?.valid"
-                                [class.red-icon]="this.despachoForm.get('precio')?.invalid && this.despachoForm.get('precio')?.touched"></i>
+                                 <i class="fa-solid fa-hand-holding-dollar" [class.green-icon]="despachoForm.get('precio')?.valid"
+                                [class.red-icon]="this.despachoForm.get('precio')?.invalid && this.despachoForm.get('precio')?.touched"></i> 
                             </div>
                         </div>
                         <input type="text" class="form-control" formControlName="precio" placeholder="precio">
                     </div>
                 </div>
             
-                <br>   
+                <br>
                 
-                
-                <div class="form-group">
+
+   <!--              <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-white">
                                 <i class="fa-regular fa-list-ol" [class.green-icon]="despachoForm.get('numeroTransporte')?.valid"
-                                [class.red-icon]="this.despachoForm.get('numeroTransporte')?.invalid && this.despachoForm.get('numeroTransporte')?.touched"></i>
+                                [class.red-icon]="this.despachoForm.get('numeroTransporte')?.invalid && this.despachoForm.get('numeroTransporte')?.touched"></i> 
                             </div>
                         </div>
                         <input type="text" class="form-control" formControlName="numeroTransporte" placeholder="numero Transporte">
                     </div>
                 </div>
             
-                <br>  
-                
-                
+                <br>   -->
 
-                <div class="form-group">
+   <!--  
+
+         
+
+               <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-white">
                                 <i class="fa-solid fa-person-military-pointing" [class.green-icon]="despachoForm.get('numeroGuia')?.valid"
-                                [class.red-icon]="this.despachoForm.get('precio')?.invalid && this.despachoForm.get('numeroGuia')?.touched"></i>
+                                [class.red-icon]="this.despachoForm.get('precio')?.invalid && this.despachoForm.get('numeroGuia')?.touched"></i> 
                             </div>
                         </div>
-                        <input type="text" class="form-control" formControlName="numeroGuia" placeholder="numeroGuia">
+                        <input type="text" class="form-control" formControlName="numeroGuia" placeholder="numero Guia">
                     </div>
-                </div>
+                </div>  -->
             
                 <br>  
+
+                <div class="form-grup">
+                    <button class="btn btn-success btn-lg btn-block" type="submit"><i class="fa-solid fa-database"></i> Aceptar</button>
+                </div>
+                
+             </form>
+
+ <!--                 
                 
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-white">
                                 <i class="fa-duotone fa-paper-plane" [class.green-icon]="despachoForm.get('idTipoEnvio')?.valid"
-                                [class.red-icon]="this.despachoForm.get('precio')?.invalid && this.despachoForm.get('idTipoEnvio')?.touched"></i>
+                                [class.red-icon]="this.despachoForm.get('precio')?.invalid && this.despachoForm.get('idTipoEnvio')?.touched"></i> 
                             </div>
                         </div>
                         <input type="text" class="form-control" formControlName="idTipoEnvio" placeholder="idTipoEnvio">
@@ -168,7 +160,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-white">
                                 <i class="fa-solid fa-envelope" [class.green-icon]="despachoForm.get('idLugarEntrega')?.valid"
-                                [class.red-icon]="this.despachoForm.get('precio')?.invalid && this.despachoForm.get('idLugarEntrega')?.touched"></i>
+                                [class.red-icon]="this.despachoForm.get('precio')?.invalid && this.despachoForm.get('idLugarEntrega')?.touched"></i> 
                             </div>
                         </div>
                         <input type="text" class="form-control" formControlName="idLugarEntrega" placeholder="id LugarEntrega">
@@ -183,7 +175,7 @@
                 </div>
             
             
-            </form>
+            </form> -->
         </div>
 
         <div class="col-md-7">

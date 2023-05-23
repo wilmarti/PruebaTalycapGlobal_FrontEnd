@@ -27,9 +27,11 @@ export class DespachoService {
 
   ObtenerDespacho(){
     this.http.get(this.myAppUrl + this.myApiUrl).toPromise()
-        .then(data => {
+        .then(data => {          
           this.list = data as FormularioDespachos[];
         });
+
+       
   }
 
   actualizardespacho(id:number,cliente:FormularioDespachos):Observable<FormularioDespachos>{

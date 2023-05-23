@@ -13,9 +13,10 @@ import { FormularioDespachos } from 'src/app/models/FormularioDespachos';
 
 
 export class FormularioDespachosComponent {
-  despachoForm!: FormGroup;
+  form!: FormGroup;
+  despachoForm: FormGroup;
   suscription! :Subscription;
-  despacho!:FormularioDespachos;
+  despacho: FormularioDespachos = new FormularioDespachos;
   IdDespacho = 0;
 
 
@@ -40,10 +41,15 @@ export class FormularioDespachosComponent {
 }
 
 ngOnInit() {
+
+  console.log("holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa222222222222222");
+
+
   this.suscription = this.DespachService.ObtenerDespacho$().subscribe(data => {
-    console.log(data);
+    console.log("pepepepepepepe",data);
     this.despacho = data;
     this.despachoForm.patchValue({
+      idDespacho:this.despacho.idDespacho,
       idCliente: this.despacho.idCliente,
       idProducto: this.despacho.idProducto,
       cantidad: this.despacho.cantidad,
@@ -55,14 +61,10 @@ ngOnInit() {
       idTipoEnvio:this.despacho.idTipoEnvio,
       idLugarEntrega:this.despacho.idLugarEntrega,
     });
+
     this.IdDespacho = this.despacho.idDespacho;
   }) 
 }
-
-ngOnDestroy(): void {
-  this.suscription.unsubscribe();
-}
-
 
 guardarDespacho() { 
 
@@ -70,28 +72,39 @@ guardarDespacho() {
     
   console.log("iddespacho:",this.IdDespacho);
 
-    if(this.IdDespacho == 0){
+    if(this.IdDespacho == undefined){
+      this.IdDespacho =0;
       this.agregar();
     }else{
       this.editar();
     }
 }
 
+
+ngOnDestroy(): void {
+  this.suscription.unsubscribe();
+}
+
+
+
 agregar(){
   // Realizar la lógica de guardar el cliente
   const despachoenviar:FormularioDespachos ={
     idDespacho: 0,
-    idCliente: this.despachoForm.get('idCliente')?.value,
-    idProducto: this.despachoForm.get('idProducto')?.value,
-    cantidad: this.despachoForm.get('cantidad')?.value,
-    fechaRegistro: this.despachoForm.get('fechaRegistro')?.value,
-    fechaEntrega: this.despachoForm.get('fechaEntrega')?.value,
-    precio: this.despachoForm.get('precio')?.value,
-    numeroTransporte: this.despachoForm.get('numeroTransporte')?.value,
-    numeroGuia: this.despachoForm.get('numeroGuia')?.value,
-    idTipoEnvio: this.despachoForm.get('idTipoEnvio')?.value,
-    idLugarEntrega: this.despachoForm.get('idLugarEntrega')?.value,
+    idCliente: Number(this.despachoForm.get('idCliente')!.value),
+    idProducto: Number(this.despachoForm.get('idProducto')?.value),
+    cantidad: Number(this.despachoForm.get('cantidad')!.value),
+    fechaRegistro: "2022/05/05",//this.despachoForm.get('fechaRegistro')?.value,
+    fechaEntrega: "2022/05/05",//this.despachoForm.get('fechaEntrega')?.value,
+    precio: "235000",//this.despachoForm.get('precio')?.value,
+    numeroTransporte: "4" , //this.despachoForm.get('numeroTransporte')!.value,
+    numeroGuia: "3",//Number(this.despachoForm.get('numeroGuia')?.value),
+    idTipoEnvio:7, //String(this.despachoForm.get('idTipoEnvio')!.value),
+    idLugarEntrega:4 //this.despachoForm.get('idLugarEntrega')?.value,
   }
+
+
+  console.log("despachoenviar:",despachoenviar)
 
 this.DespachService.GuardarDespacho(despachoenviar).subscribe(data =>{
   this.toastr.success('Registro Agregado','Despacho agregado con exito');
