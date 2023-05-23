@@ -25,13 +25,13 @@ export class FormularioClientesComponent implements OnInit,OnDestroy {
               private ClienteService:ClientesService,
               private toastr:ToastrService) {
     this.clienteForm = this.formbuilder.group ({
-       IdCliente: 0,
-       tipoIdentificacion: ['', Validators.required],
-       identificacionCliente: ['', Validators.required],
-       nombreCliente: ['', Validators.required],
-       direccion: ['', Validators.required],
-       telefono: ['', Validators.required],
-       email: ['', [Validators.required, Validators.email]]
+      IdCliente: 0,
+      tipoIdentificacion: ['', Validators.required],
+      identificacionCliente: ['', Validators.required],
+      nombreCliente: ['', Validators.required],
+      direccion: ['', Validators.required],
+      telefono: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
     })
   }
 
@@ -56,7 +56,9 @@ export class FormularioClientesComponent implements OnInit,OnDestroy {
     this.suscription.unsubscribe();
   }
 
-  guardarCliente() {
+  guardarCliente() { 
+    
+    console.log("idcliente:",this.IdCliente)
 
       if(this.IdCliente == 0){
         this.agregar();
@@ -77,7 +79,7 @@ export class FormularioClientesComponent implements OnInit,OnDestroy {
           email: this.clienteForm.get('email')?.value,
         }
 
-       
+       console.log("hooooooooooooooooooooooooooooooooooooo")
       this.ClienteService.GuardarCliente(clienteenviar).subscribe(data =>{
         this.toastr.success('Registro Agregado','Cliente agregado con exito');
         this.ClienteService.ObtenerCliente();

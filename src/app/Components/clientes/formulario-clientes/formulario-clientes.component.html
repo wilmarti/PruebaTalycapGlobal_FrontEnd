@@ -1,98 +1,120 @@
 
 
-  <form [formGroup]="clienteForm" (ngSubmit)="guardarCliente()">
-    <div class="form-group">
-        
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fa-solid fa-user" [class.green-icon]="clienteForm.get('nombreCliente')?.valid"
-                    [class.red-icon]="this.clienteForm.get('nombreCliente')?.invalid && this.clienteForm.get('nombreCliente')?.touched"></i>
+<div class="jumbtrom">
+
+    <h1 class="displa-4 text-center">Clientes</h1>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-5">
+            <h6 class="text-center">
+                Agregar Cliente
+            </h6>
+            <form [formGroup]="clienteForm" (ngSubmit)="guardarCliente()">
+                <div class="form-group">
+                    
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text bg-white">
+                                <i class="fa-solid fa-user" [class.green-icon]="clienteForm.get('nombreCliente')?.valid"
+                                [class.red-icon]="this.clienteForm.get('nombreCliente')?.invalid && this.clienteForm.get('nombreCliente')?.touched"></i>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" formControlName="nombreCliente" placeholder="Nombre Cliente">
+                    </div>
                 </div>
-            </div>
-            <input type="text" class="form-control" formControlName="nombreCliente" placeholder="Nombre Cliente">
+            
+                <br>
+            
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text bg-white">
+                                <i class="fa-regular fa-id-card" ></i>
+                            </div>
+                        </div>
+                        <select class="form-select" formControlName="tipoIdentificacion" aria-label="Default select example">
+                            <option selected>Tipo Identificacion</option>
+                            <option value="CC">Cedula de Ciudadania</option>
+                            <option value="CE">Cedula de Extranjeria</option>
+                            <option value="PA">Pasaporte</option>
+                          </select>
+                    </div>
+                </div>
+            
+                <br>
+            
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text bg-white">
+                                <i class="fa-regular fa-id-card" [class.green-icon]="clienteForm.get('identificacionCliente')?.valid"
+                                [class.red-icon]="this.clienteForm.get('identificacionCliente')?.invalid && this.clienteForm.get('identificacionCliente')?.touched"></i>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" maxlength="10" formControlName="identificacionCliente" placeholder="Número de Identificación">
+                    </div>
+                </div>
+            
+                <br>
+            
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text bg-white">
+                                <i class="fa-solid fa-location-dot"  [class.green-icon]="clienteForm.get('direccion')?.valid"
+                                [class.red-icon]="this.clienteForm.get('direccion')?.invalid && this.clienteForm.get('direccion')?.touched"></i>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" formControlName="direccion" laceholder="Direccion">
+                    </div>
+                </div>
+            
+                <br>
+            
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text bg-white">
+                                <i class="fa-solid fa-phone" [class.green-icon]="clienteForm.get('telefono')?.valid"
+                                [class.red-icon]="this.clienteForm.get('telefono')?.invalid && this.clienteForm.get('telefono')?.touched"></i>                    
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" maxlength="10" formControlName="telefono" placeholder="Telefono">
+                    </div>
+                </div>
+            
+                <br>
+            
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text bg-white">
+                                <i class="fa-solid fa-envelope" [class.green-icon]="clienteForm.get('email')?.valid"
+                                [class.red-icon]="this.clienteForm.get('email')?.invalid && this.clienteForm.get('email')?.touched"></i>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" formControlName="email" placeholder="Mail">
+                    </div>
+                </div>
+            
+                <br>
+            
+                <div class="form-grup">
+                    <button class="btn btn-success btn-lg btn-block" [disabled]="clienteForm.invalid" type="submit"><i class="fa-solid fa-database"></i> Aceptar</button>
+                </div>
+            
+            
+            </form>
+        </div>
+
+        <div class="col-md-7">
+            <h6 class="text-center">
+                Lista de Clientes
+            </h6>            
+            <app-lista-clientes></app-lista-clientes>
         </div>
     </div>
-
-    <br>
-
-    <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fa-regular fa-id-card" ></i>
-                </div>
-            </div>
-            <select class="form-select" formControlName="tipoIdentificacion" aria-label="Default select example">
-                <option selected>Tipo Identificacion</option>
-                <option value="CC">Cedula de Ciudadania</option>
-                <option value="CE">Cedula de Extranjeria</option>
-                <option value="PA">Pasaporte</option>
-              </select>
-        </div>
-    </div>
-
-    <br>
-
-    <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fa-regular fa-id-card" [class.green-icon]="clienteForm.get('identificacionCliente')?.valid"
-                    [class.red-icon]="this.clienteForm.get('identificacionCliente')?.invalid && this.clienteForm.get('identificacionCliente')?.touched"></i>
-                </div>
-            </div>
-            <input type="text" class="form-control" maxlength="10" formControlName="identificacionCliente" placeholder="Número de Identificación">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fa-solid fa-location-dot"  [class.green-icon]="clienteForm.get('direccion')?.valid"
-                    [class.red-icon]="this.clienteForm.get('direccion')?.invalid && this.clienteForm.get('direccion')?.touched"></i>
-                </div>
-            </div>
-            <input type="text" class="form-control" formControlName="direccion" laceholder="Direccion">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fa-solid fa-phone" [class.green-icon]="clienteForm.get('telefono')?.valid"
-                    [class.red-icon]="this.clienteForm.get('telefono')?.invalid && this.clienteForm.get('telefono')?.touched"></i>                    
-                </div>
-            </div>
-            <input type="text" class="form-control" maxlength="10" formControlName="telefono" placeholder="Telefono">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fa-solid fa-envelope" [class.green-icon]="clienteForm.get('email')?.valid"
-                    [class.red-icon]="this.clienteForm.get('email')?.invalid && this.clienteForm.get('email')?.touched"></i>
-                </div>
-            </div>
-            <input type="text" class="form-control" formControlName="email" placeholder="Mail">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="form-grup">
-        <button class="btn btn-success btn-lg btn-block" [disabled]="clienteForm.invalid" type="submit"><i class="fa-solid fa-database"></i> Aceptar</button>
-    </div>
-
-
-</form>
+</div>
+ 
+ 

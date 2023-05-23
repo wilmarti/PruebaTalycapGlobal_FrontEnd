@@ -1,0 +1,34 @@
+<table class="table .table-hover table-sm">
+    <tr>
+        <td class="font-weight-bold font-italic">CLIENTE</td>
+        <td>PRODUCTO</td>
+        <td>CANTIDAD</td>
+        <td>FECHA REGISTRO</td>
+        <td>FECHA ENTREGA</td>
+        <td>PRECIO</td>
+        <td>TRANSPORTE</td>
+        <td>GUIA</td>
+        <td>TIPO ENVIO</td>
+        <td>LUGAR ENTREGA</td>
+
+    </tr>
+    <tr *ngFor="let despacholist of DespachoService.list; let i = index">
+        <!-- <td>{{ clientelist.idCliente}}</td> -->
+        <td>{{ despacholist.idProducto}}</td>
+        <td>{{ despacholist.cantidad}}</td>
+        <td>{{ despacholist.fechaRegistro}}</td>
+        <td>{{ despacholist.fechaEntrega}}</td>
+        <td>{{ despacholist.fechaEntrega}}</td>
+        <td>{{ despacholist.precio}}</td>
+        <td>{{ despacholist.numeroTransporte}}</td>
+        <td>{{ despacholist.numeroGuia}}</td>
+        <td>{{ despacholist.idTipoEnvio}}</td>
+        <td>{{ despacholist.idLugarEntrega}}</td>
+        <td>
+            <i class="far fa-edit fa-lg text-info" (click)="editar(despacholist)"  style="cursor: pointer;"></i>          
+        </td>
+        <td>
+            <i class="far fa-trash-alt fa-lg text-danger" (click)="EliminarDespacho(despacholist.idDespacho)" style="cursor: pointer;"></i>          
+        </td>
+    </tr>
+</table>
